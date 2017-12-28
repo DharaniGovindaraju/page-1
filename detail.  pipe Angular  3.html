@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Triotuts</title>
+	
+	<meta name="author" content="triotuts.com">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/icons.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<div id="wrap">
+		<div id="main-nav" class="">
+			<div class="container">
+				<div class="nav-header">
+					<a class="nav-brand" href="index.html">Triotuts</a>
+				</div>
+			</div>
+		</div>
+
+		<section id="hero" class="light-typo">
+			<div id="cover-image" class="image-bg2 animated fadeIn"></div>
+			<div class="container welcome-content">
+				<div class="middle-text">
+					<h1>Simple Custom Pipe in Angular 2</h1>
+					<h2>Angular 2</h2>
+				</div>
+			</div>
+		</section>
+
+		<section id="breadcrumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Angular 2</a></li>
+							<li><a href="#">Beginner</a></li>
+							<li class="active">Simple Custom Pipe in Angular 2</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="container content">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+
+					<div class="post-date">
+						Jul 11, 2017
+					</div>
+					<h2>Pipes</h2>
+					<div class="post-intro">
+						<p>Pipes in Angular 2 will get data as input and format data required way and render in your templates. Some of predefined pipes also available dates, currency, percentage and character cases etc. you can also define custom pipes of your own easily.</p></div>
+					
+					
+					<h3>Prerequisites</h3>
+					<p>Angular Cli must be installed if not installed check out my previous article<br>                   “Install and run Angular 2 apps using Angular CLI”.</p>
+						<p>Some basic knowledge on Html, Css, Javascript, Oops.</p>
+                       <p>Create a new pipe</p>
+                       <p>Using command :</p>
+                       <p>ng generate pipe pipe-name or ng g p pipe-name</p>
+                       <p>Here we are going to create pipe to reverse character in a word.</p>
+                       <p>ng generate pipe reversechar</p>
+                       <p>it will automatically generate default ts file with code related and configure reversechar pipe in app.module file.</p>
+                       <h4>Manually :</h4>
+                       <p>Inside app folder create a new typescript file with name as given below</p>
+                          <p>reversechar.pipe.ts</p>
+                         <p>app.module.ts</p> 
+
+                       <p>Add the custom pipe as a declaration in your app module:</p>
+                            <p>app.component.html<p>
+                           <p>And finally use custom pipe in your view</p>
+                           	<p>app.component.html</p>
+                           <p>And finally use custom pipe in your view</p>
+                          <p>Analysing reversechar.pipe.ts</p>
+                             <p> import { Pipe, PipeTransform } from ‘@angular/core’;</p>
+                          <p>Imported the Pipe, PipeTransform decorator from Angular core module.</p>
+                          <p> @Pipe({name: ‘reverseChar’})</p>
+                        <p>  @Pipe() decorator will tell the angular that this file used to define custom pipe.</p> 
+                           <p> {name: ‘reverseChar’} parameter inside @Pipe() is the pipe name we are going to </p> 
+                             <p> use in our template(<div>{{ username | reverseChar }}</div>).</p> 
+                              <p>export class ReverseChar implements PipeTransform {<p>
+                              <p>transform(value: string): string {<p>
+                              <p>let newString: string = “”;<p>
+                              <p>for (var i = value.length — 1; i >= 0; i — ) {<p>
+                              <p>newStr += value.charAt(i);<p>
+                               }<br>
+                               }<br>
+                              <p>return newString;</p>
+                              }<br>
+                              }<br>
+
+                         <p>Final step : exported class which contains transform method that accepts a data as input and returns transformed or formatted value as output.</p>
+
+
+
+
+
+
+
+                       
+		                 					
+			<!--		<p>When you have developed an software and it gains traction, you receive thousands of customers every day to use it. Scaling becomes much difficult and cost consuming tasks. To increase the performance of the servers and to decrease the response time we will deploy more servers and scale it. It consumes more cost and resources. For a small and medium scale startups company it is a significant challenge.</p>
+					<p>Wait, How good it will be if it comes without any cost. Yes you can achieve this by implementing the application in blockchain. To say simply your personal computer is enough to deploy the application.</p>
+					<blockquote>
+						<p><b>Example:</b> Since we run our application in traditional servers then it becomes possible hacking point. If that serve goes down all our applications goes down.It is like if we bet all our money in single lottery then there is a very high possibility of losing it by forging you. It is like building the roof on top of single pillar, it becomes more vulnerable to attacks and more possible failure and collapse.</p>
+						<p>But if we build a roof on support of hundred pillars if one goes down, possibility of failure is nothing. This kind of scaling power can be be given by Blockchain technology.</p>
+					</blockquote>
+					<p>I have summarized the knowledge i have acquired. I would be happy if it help o kick start the learning of blockchain technology. It is no more a Buzz word. It is happening. Please share your thoughts.</p>-->
+
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="copyright">
+				<div class="container">
+					<p class="pull-left">Created by <a href="http://triotuts.com">Triotuts.</a></p>
+					<ul class="social-links pull-right">
+								<li><a href="#link"><i class="icon-twitter"></i></a></li>
+								<li><a href="#link"><i class="icon-facebook"></i></a></li>
+								
+							</ul>
+
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/placeholders.min.js"></script>
+	<script type="text/javascript" src="js/wow.min.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98367718-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

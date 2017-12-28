@@ -1,0 +1,168 @@
+<!doctype html>
+<html>
+<head>
+	<title>Triotuts</title>
+	<meta charset="utf-8">
+	<meta name="description" content="triotuts.com">
+	<meta name="author" content="triotuts.com">
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Merriweather:400,400italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/icons.css">
+	<link rel="stylesheet" href="../css/animate.min.css">
+
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+
+<body id="home">
+
+	<div id="wrap">
+		<div id="main-nav" class="">
+			<div class="container">
+				<div class="nav-header">
+					<a class="nav-brand" href="index.html">Triotuts</a>
+				</div>
+			</div>
+		</div>
+
+		<section id="hero" class="light-typo">
+			<div id="cover-image" class="image-bg2 animated fadeIn"></div>
+			<div class="container welcome-content">
+				<div class="middle-text">
+					<h1>Simple Custom Directive in Angular 2</h1>
+					<h2>Angular 2</h2>
+				</div>
+			</div>
+		</section>
+
+		<section id="breadcrumb">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Angular 2</a></li>
+							<li><a href="#">Beginner</a></li>
+							<li class="active">Simple Custom Directive in Angular 2</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<div class="container content">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">
+
+					<div class="post-date">
+						July 29, 2017
+					</div>
+				     <h3>Custom Directive</h3> 
+					<div class="post-intro">Directives are similar to components, components are just directives with a view attached. There are three kinds of directives in Angular 2 as given below.
+                     a. components — To create HTML template.<br>
+                     b. attribute — To changes the appearance and behavior of DOM element(NgStyle, NgClass).<br>
+                     c. structural — To add and remove DOM elements(NgFor, NgIf).<br>
+                   </div>
+                   <h3>Prerequisites</h3>
+					<p>Angular Cli must be installed if not installed check out my previous article <br>
+						“Install and run Angular 2 apps using Angular CLI”.<br>
+						Some basic knowledge on Html, Css, Javascript, Oops.</p>
+					
+					<h4>Create a new Custom Attribute Directive</h4><br>
+					<p>Today we are going to create a directive that is used to change font color. </p>
+					<h4>Using command :</h4>
+					<p>ng generate directive fontcolor</p>
+					<h3>Manually :</h3>
+					<p>Create below file inside app folder</p>
+					<p>fontcolor.directive.ts</p>
+					<script src="https://gist.github.com/satheeaseelan/7b85b81e17d982dbaeeb9b8ffdd048e2.js"></script>
+					<p>since we created fontcolor directive manually, it needs to be added in our module file to expose this service to outside world connected with that module.</p>
+					<script src="https://gist.github.com/satheeaseelan/01e6fd5b326d5c0a351d95c86aa037fb.js"></script>
+					<h4>Analysing fontcolor.directive.ts</h4>
+					<p>import { Directive, ElementRef, Renderer } from ‘@angular/core’;<br>
+                     Imported the Directive decorator, ElementRef used to get dom element, Renderer to set the element’s style from Angular core module.<br>
+                     @Directive({ selector: ‘[appFontcolor]’ })<br>
+                     @Directive() decorator will tell the angular that this file used to define custom directive.<br>
+                               { selector: ‘[appFontcolor]’ } parameter inside <u>@Directive</u>() is the directive name we are going to use in our template(<div appFontcolor> Helloworld !!! </div>).<br>
+                           export class FontcolorDirective {</br>
+                           constructor(elem: ElementRef, renderer: Renderer) {</br>
+                            renderer.setElementStyle(elem.nativeElement, ‘color’, ‘#EEBA33’);</br></p>
+                        }</br>
+                        }</br>
+
+                      <h4>Final step</h4> : exported class in which ElementRef is used get the current dom element and Renderer is used to apply style to the selected element.</p>
+                   <h4>Implementation</h4>: if fontcolor directive is used in app component will be like below.</p>
+
+               <h4>app.component.html</h4>
+               <p><div appFontcolor> Helloworld !!! </div></p>
+
+
+
+
+
+
+			<!--		<blockquote>
+						<p><b>Example:</b> How difficult it is store to steal a ancient diamond in the secure museum which has 100 plus guards safe guarding the walls of the museum. Yes it is difficult but it is not impossible. But If I put the same ring in middle of the market where 100 plus peoples are always watching the diamond ring at any point of time. I feel it is impossible to snatch it without someone seeing you stealing it.</p>
+					</blockquote>
+					<p>This kind of security is provided by Blockchain technology. All your transactions are validated by thousands of people around the globe. They are called miners who will receive your transactions and process it. You cannot fake any data or transaction. Here transaction can be money or any digital asset.
+					</p>
+					<h2>Trust</h2>
+					<p>Now a days any software development relays with many parties. When we develop application which is interacting with many business, trust plays a vital role. We don’t know whether the data passed to or received from another provider is altered or not. It creates more confusions in business collaboration.
+					</p>
+					<blockquote>
+						<p><b>Example:</b> We get cheque from someone but we are not sure the account is having enough money, whether it is original signature or not. But we can be sure that if we receive it as Demand Draft.</p>
+						<p>If one of your friends says, He went to mount Everest and he scratched his name over there. Obviously we couldn’t trust him. But in the same case if he had uploaded the video log and photos in the Facebook and it is liked by 1000 real people we need not cross validate it. Because it is having clear evidence what he did.(Assume once logged can’t be changed or modified by anyone)</p>
+					</blockquote>
+					<p>In the same logic all the transactions happen in blockchain is recorded, validated and stored there is no way to remove or alter the transaction.</p>
+					<h2>Distributed</h2>
+					<p>We often come through the word distribution in big software developments. We know modifying or deleting the distributed data becomes more complicated. Distributing data to different application which is owned by different parties always creates complexities and data mismatch over period of time. It can be resolved easily by blockchain
+					</p>
+					<blockquote>
+						<p><b>Example:</b> Think like two different businesses E-commerce and Courier company doing together. They do have different applications but interact each other, so each one will have different database and duplicated data. It is impossible to share the common database by both because we couldn’t trust who changes what can’t be tracked.In blockchain it is like shared replica data, all the transactions or changes will be distributed to everyone and logged in blockchain.</p>
+					</blockquote>
+					<h2>Scale</h2>
+					<p>When you have developed an software and it gains traction, you receive thousands of customers every day to use it. Scaling becomes much difficult and cost consuming tasks. To increase the performance of the servers and to decrease the response time we will deploy more servers and scale it. It consumes more cost and resources. For a small and medium scale startups company it is a significant challenge.</p>
+					<p>Wait, How good it will be if it comes without any cost. Yes you can achieve this by implementing the application in blockchain. To say simply your personal computer is enough to deploy the application.</p>
+					<blockquote>
+						<p><b>Example:</b> Since we run our application in traditional servers then it becomes possible hacking point. If that serve goes down all our applications goes down.It is like if we bet all our money in single lottery then there is a very high possibility of losing it by forging you. It is like building the roof on top of single pillar, it becomes more vulnerable to attacks and more possible failure and collapse.</p>
+						<p>But if we build a roof on support of hundred pillars if one goes down, possibility of failure is nothing. This kind of scaling power can be be given by Blockchain technology.</p>
+					</blockquote>
+					<p>I have summarized the knowledge i have acquired. I would be happy if it help some to kick start the learning of blockchain technology. It is no more a Buzz word. It is happening. Please share your thoughts.</p><-->
+
+				</div>
+			</div>
+		</div>
+		<footer>
+			<div class="copyright">
+				<div class="container">
+					<p class="pull-left">Created by <a href="http://triotuts.com">Triotuts.</a></p>
+					<ul class="social-links pull-right">
+								<li><a href="#https://www.twitter.com/IAmTriodesk.com"><i class="icon-twitter"></i></a></li>
+								<li><a href="#https://www.facebook.com/Triodesk.com"><i class="icon-facebook"></i></a></li>
+							
+							</ul>
+
+				</div>
+			</div>
+		</footer>
+	</div>
+	<script type="text/javascript" src="../js/jquery-1.9.1.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/placeholders.min.js"></script>
+	<script type="text/javascript" src="../js/wow.min.js"></script>
+	<script type="text/javascript" src="../js/custom.js"></script>
+	<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-98367718-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>
